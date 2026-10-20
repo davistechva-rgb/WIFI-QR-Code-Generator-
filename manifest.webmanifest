@@ -1,0 +1,1 @@
+{"name": "Wi-Fi QR Card by Davis Tech Support", "short_name": "Wi-Fi Card", "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#F6F8F7", "theme_color": "#0E7C86", "icons": [{"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"}, {"src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"}]}

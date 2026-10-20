@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wi-Fi QR Card | Davis Tech Support</title>
+<meta name="description" content="Make a printable card guests scan to join your Wi-Fi. Free, private, and works offline.">
+<meta name="theme-color" content="#0E7C86">
+<link rel="icon" href="assets/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700;800&family=Fira+Mono:wght@500&display=swap">
+<style>
+:root{--ink:#14232E;--muted:#5C6B75;--line:#DCE4E2;--bg:#F6F8F7;--card:#fff;--teal:#0E7C86;--teal-d:#095E66;--soft:#E7F3F2;--warn:#8A5A00;--warn-bg:#FFF4DB;--r:14px}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 "Figtree",system-ui,sans-serif}
+header{max-width:1120px;margin:0 auto;padding:22px 24px 6px;display:flex;align-items:center;gap:14px}
+header img{height:52px}header h1{margin:0;font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.01em}
+header p{margin:2px 0 0;color:var(--muted)}
+main{max-width:1120px;margin:0 auto;padding:16px 24px 48px;display:grid;grid-template-columns:400px 1fr;gap:24px;align-items:start}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:0 2px 10px rgba(20,35,46,.05)}
+h2{font-size:1.05rem;margin:0 0 12px;font-weight:800}h2+*{margin-top:0}
+.sec{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+label.l{display:block;font-weight:700;margin:14px 0 6px;font-size:.95rem}
+input[type=text],input[type=password],select{width:100%;font:inherit;font-size:1rem;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,124,134,.18)}
+.pw{display:flex;gap:8px}.pw input{flex:1}
+.tg{display:flex;align-items:center;gap:10px;margin:12px 0 0;font-weight:600;cursor:pointer}.tg input{width:19px;height:19px;accent-color:var(--teal)}
+.btn{appearance:none;font:700 .98rem "Figtree",sans-serif;padding:11px 16px;border-radius:10px;border:1.5px solid var(--teal);background:#fff;color:var(--teal-d);cursor:pointer;min-height:44px}
+.btn:hover{background:var(--soft)}.btn.p{background:var(--teal);color:#fff}.btn.p:hover{background:var(--teal-d)}
+.btn.s{padding:8px 12px;min-height:38px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.seg{display:flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{flex:1;appearance:none;border:0;background:#fff;font:600 .9rem "Figtree",sans-serif;padding:10px 8px;cursor:pointer;color:var(--muted)}
+.seg button+button{border-left:1.5px solid var(--line)}.seg button[aria-pressed=true]{background:var(--teal);color:#fff}
+.sw{display:flex;gap:10px}.sw button{width:36px;height:36px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px var(--line);cursor:pointer}
+.sw button[aria-pressed=true]{box-shadow:0 0 0 3px var(--ink)}
+.hint{color:var(--muted);font-size:.9rem;margin:10px 0 0}
+.warn{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 12px;font-weight:600;margin:0 0 14px;font-size:.95rem}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sheet{display:grid;gap:16px;justify-items:center;background:repeating-linear-gradient(45deg,#eef2f1 0 12px,#e8edec 12px 24px);border-radius:var(--r);padding:22px}
+.sheet.p4,.sheet.p8{grid-template-columns:1fr 1fr}
+.card{--a:#0E7C86;--a2:#E7F3F2;background:#fff;color:#14232E;border-radius:16px;padding:24px 22px 20px;text-align:center;width:100%;max-width:400px;border-top:10px solid var(--a);box-shadow:0 4px 18px rgba(0,0,0,.08)}
+.card .lg{height:64px;display:block;margin:0 auto 4px}
+.card .t{font-size:2rem;font-weight:800;line-height:1.1;color:var(--a);margin:2px 0 4px}
+.card .sc{font-size:.95rem;color:#5C6B75;margin:0 0 12px}
+.card .q{background:var(--a2);border-radius:14px;padding:12px;display:inline-block}.card .q svg{display:block;width:240px;height:auto;max-width:100%}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;text-align:left;margin:14px auto 0;max-width:320px}
+.card dt{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:#5C6B75;padding-top:4px;font-weight:700}
+.card dd{margin:0;font:500 1.15rem/1.35 "Fira Mono",monospace;word-break:break-all}
+.card .n{margin-top:12px;font-size:.82rem;color:#5C6B75}
+.card.c4{padding:14px 12px 12px;border-top-width:7px}.card.c4 .t{font-size:1.35rem}.card.c4 .lg{height:40px}.card.c4 .q svg{width:150px}.card.c4 dd{font-size:.88rem}.card.c4 .sc{font-size:.76rem;margin-bottom:8px}
+.card.c8{padding:8px 8px 8px;border-top-width:5px;border-radius:10px}.card.c8 .t{font-size:1rem}.card.c8 .lg{height:26px}.card.c8 .q{padding:6px}.card.c8 .q svg{width:100px}.card.c8 dd{font-size:.7rem}.card.c8 dt{font-size:.6rem}.card.c8 .sc{display:none}.card.c8 dl{margin-top:6px;gap:2px 8px}.card.c8 .n{font-size:.6rem;margin-top:4px}
+details{margin-top:14px}summary{cursor:pointer;color:var(--muted);font-size:.9rem}pre{font:500 .85rem "Fira Mono",monospace;background:var(--soft);padding:10px;border-radius:8px;white-space:pre-wrap;word-break:break-all}
+footer{max-width:1120px;margin:0 auto;padding:0 24px 30px;color:var(--muted);font-size:.9rem}footer a{color:var(--teal-d)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+[hidden]{display:none!important}
+@media print{@page{margin:10mm}body{background:#fff}header,footer,.ctrl,.ph,details,.warn{display:none!important}
+ main{display:block;padding:0}.box{border:0;box-shadow:none;padding:0}.sheet{background:none;padding:0;gap:6mm}
+ .sheet.p1 .card{max-width:125mm;margin-top:15mm}.card{box-shadow:none;border:1px dashed #aaa;border-top:10px solid var(--a);break-inside:avoid;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .card .q{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header><img src="assets/logo-mark.png" alt="Davis Tech Support"><div><h1>Wi-Fi QR Card</h1><p>Guests scan it with their phone camera and they're on.</p></div></header>
+<main>
+ <section class="box ctrl" aria-label="Settings">
+  <h2>Your network</h2>
+  <label class="l" for="ssid">Network name</label><input type="text" id="ssid" autocomplete="off" spellcheck="false" placeholder="Office-Guest">
+  <label class="l" for="sec">Security</label>
+  <select id="sec"><option value="WPA">WPA2 or WPA3 (most networks)</option><option value="SAE">WPA3 only</option><option value="WEP">WEP (very old)</option><option value="nopass">None (open network)</option></select>
+  <div id="pwW"><label class="l" for="pw">Password</label><div class="pw"><input type="password" id="pw" autocomplete="off" spellcheck="false"><button class="btn s" type="button" id="show" aria-pressed="false">Show</button></div></div>
+  <label class="tg"><input type="checkbox" id="hid"> This is a hidden network</label>
+  <div class="sec"><h2>Card</h2>
+   <label class="l" for="title">Heading</label><input type="text" id="title">
+   <label class="l" for="note">Small print (optional)</label><input type="text" id="note" placeholder="For guests. Please don't share.">
+   <label class="l">Color</label><div class="sw" id="sw"></div>
+   <label class="l">Per page</label><div class="seg" id="per"><button type="button" data-v="1">1 large</button><button type="button" data-v="4">4 cards</button><button type="button" data-v="8">8 small</button></div>
+   <label class="tg"><input type="checkbox" id="showpw"> Print the password on the card</label>
+   <label class="tg"><input type="checkbox" id="logo"> Show the Davis Tech Support logo</label>
+   <label class="tg"><input type="checkbox" id="remember"> Remember the password on this device</label>
+   <p class="hint">The code is made in your browser. The password is never sent anywhere.</p></div>
+ </section>
+ <section class="box">
+  <div class="ph"><h2 style="margin:0">Preview</h2><div class="row"><button class="btn p" type="button" id="print">Print</button><button class="btn s" type="button" id="png">Save PNG</button><button class="btn s" type="button" id="svg">Save SVG</button></div></div>
+  <div id="msg" aria-live="polite"></div>
+  <div class="sheet" id="sheet"></div>
+  <details><summary>What's inside the code</summary><pre id="raw"></pre></details>
+ </section>
+</main>
+<footer>Free from <a href="https://davis-tech-support.com" target="_blank" rel="noopener">Davis Tech Support</a>, Farmville, Virginia · <a href="tel:+14342944456">434-294-4456</a></footer>
+<script src="assets/qrcode.js"></script>
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+qrcode.stringToBytes=qrcode.stringToBytesFuncs["UTF-8"];
+const get=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const esc=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const COLORS=[["#0E7C86","#E7F3F2","Teal"],["#13315C","#E6EDF6","Navy"],["#B4472B","#FBEDE8","Brick"],["#2F6B2F","#E9F3E6","Green"]];
+const s=Object.assign({ssid:"",sec:"WPA",pw:"",hid:false,title:"Guest Wi-Fi",note:"",showpw:true,logo:true,per:"1",remember:false,c:0},get("wifiqr",{}));
+const wesc=v=>String(v).replace(/([\;,:"])/g,"\\$1");
+const payload=()=>`WIFI:T:${s.sec};S:${wesc(s.ssid)};${s.sec!=="nopass"?`P:${wesc(s.pw)};`:""}${s.hid?"H:true;":""};`;
+function make(text){const q=qrcode(0,"M");q.addData(text);q.make();const n=q.getModuleCount(),m=4,t=n+m*2;let d="";
+ for(let y=0;y<n;y++)for(let x=0;x<n;x++)if(q.isDark(y,x))d+=`M${x+m} ${y+m}h1v1h-1z`;
+ return{q,n,t,svg:`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${t} ${t}" shape-rendering="crispEdges" role="img" aria-label="Wi-Fi QR code"><rect width="${t}" height="${t}" fill="#fff"/><path d="${d}" fill="#000"/></svg>`}}
+let cur=null;
+$("#sw").innerHTML=COLORS.map((c,i)=>`<button type="button" data-c="${i}" style="background:${c[0]}" aria-label="${c[2]}"></button>`).join("");
+function render(){const keep=Object.assign({},s);if(!s.remember)keep.pw="";set("wifiqr",keep);
+ $("#pwW").hidden=s.sec==="nopass";$$("#per button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.v===s.per));$$("#sw button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.c===s.c));
+ const w=[];if(s.ssid&&s.sec!=="nopass"&&!s.pw)w.push("Add the password, or phones will ask for one after scanning.");
+ if(s.pw&&s.sec!=="nopass"&&s.sec!=="WEP"&&s.pw.length<8)w.push("WPA passwords are at least 8 characters. Double-check this one.");
+ if(new TextEncoder().encode(s.ssid).length>32)w.push("Network names can be 32 characters at most, so this can't match a real network.");
+ $("#msg").innerHTML=w.map(x=>`<p class="warn">${esc(x)}</p>`).join("");
+ if(!s.ssid){$("#sheet").innerHTML='<p class="hint">Type your network name to make the card.</p>';$("#raw").textContent="";cur=null;return}
+ const p=payload();cur=make(p);$("#raw").textContent=s.showpw?p:p.replace(/P:(?:\\.|[^;])*;/,"P:(hidden);");
+ const [a,a2]=COLORS[s.c]||COLORS[0];
+ const card=`<div class="card c${s.per}" style="--a:${a};--a2:${a2}">${s.logo?`<img class="lg" src="assets/logo.png" alt="Davis Tech Support">`:""}<div class="t">${esc(s.title||"Wi-Fi")}</div><p class="sc">Open your phone's camera and point it at the code</p>
+  <div class="q">${cur.svg}</div><dl><dt>Network</dt><dd>${esc(s.ssid)}</dd>${s.sec!=="nopass"&&s.showpw&&s.pw?`<dt>Password</dt><dd>${esc(s.pw)}</dd>`:""}</dl>${s.note?`<div class="n">${esc(s.note)}</div>`:""}</div>`;
+ $("#sheet").className="sheet p"+s.per;$("#sheet").innerHTML=card.repeat(+s.per)}
+[["ssid","value","input"],["sec","value","change"],["pw","value","input"],["hid","checked","change"],["title","value","input"],["note","value","input"],["showpw","checked","change"],["logo","checked","change"],["remember","checked","change"]]
+ .forEach(([id,p,ev])=>{const e=$("#"+id);e[p]=s[id];e.addEventListener(ev,()=>{s[id]=e[p];render()})});
+$$("#per button").forEach(b=>b.onclick=()=>{s.per=b.dataset.v;render()});$$("#sw button").forEach(b=>b.onclick=()=>{s.c=+b.dataset.c;render()});
+$("#show").onclick=e=>{const on=$("#pw").type==="password";$("#pw").type=on?"text":"password";e.target.textContent=on?"Hide":"Show";e.target.setAttribute("aria-pressed",on)};
+const fname=ext=>`wifi-${(s.ssid||"network").replace(/[^\w-]+/g,"_")}.${ext}`;
+const dl=(name,blob)=>{const u=URL.createObjectURL(blob),a=document.createElement("a");a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),2000)};
+$("#print").onclick=()=>{if(cur)print();else $("#ssid").focus()};
+$("#svg").onclick=()=>cur&&dl(fname("svg"),new Blob([cur.svg],{type:"image/svg+xml"}));
+$("#png").onclick=()=>{if(!cur)return;const sc=Math.max(8,Math.floor(1200/cur.t)),c=document.createElement("canvas");c.width=c.height=cur.t*sc;const g=c.getContext("2d");g.fillStyle="#fff";g.fillRect(0,0,c.width,c.height);g.fillStyle="#000";
+ for(let y=0;y<cur.n;y++)for(let x=0;x<cur.n;x++)if(cur.q.isDark(y,x))g.fillRect((x+4)*sc,(y+4)*sc,sc,sc);c.toBlob(b=>dl(fname("png"),b),"image/png")};
+render();
+if("serviceWorker" in navigator&&location.protocol==="https:")addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+})();
+</script>
+</body>
+</html>
